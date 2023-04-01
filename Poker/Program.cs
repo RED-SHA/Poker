@@ -6,7 +6,32 @@ namespace Poker
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game game = new Game();
+
+            game.AddPlayer("Dealer");
+            game.AddPlayer("Player");
+
+            bool isPlay = true;
+
+            while (isPlay)
+            {
+                game.Play();
+                Console.WriteLine("Press Enter to play again or Esc to exit.");
+                ConsoleKeyInfo key = Console.ReadKey();
+
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    isPlay = false;
+                }
+                else if (key.Key != ConsoleKey.Enter)
+                {
+                    Console.WriteLine("Invalid input. Press Enter to play again or Esc to exit.");
+                    key = Console.ReadKey();
+                }
+
+                Console.Clear();
+            }
         }
     }
+    
 }
