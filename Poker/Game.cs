@@ -31,7 +31,7 @@ namespace Poker
 
         public void Play()
         {
-            if (_deck.RemainCardCount() <= 0)
+            if (_deck.RemainCardCount() < _players.Count * 2)
             {
                 _deck = null;
                 _deck = new Deck();
